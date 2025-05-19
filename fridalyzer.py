@@ -82,7 +82,6 @@ def main(pid):
         script.load()
 
         if (len(sys.argv) > 1 and sys.argv[2] == "-d"):
-            print("-d")
             regionscript = loadscript("EnumerateRangesDump.js")
             script = session.create_script(regionscript)
             script.on('message', on_message_regions)
