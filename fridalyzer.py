@@ -9,7 +9,7 @@ def main(pid):
         session = device.attach(int(pid))
         process = psutil.Process(int(pid))
         print(f"Hooking to {process.name()}")
-        folderstring = f"FridaDumper-{process.name()}-{pid}"
+        folderstring = f"Fridalyzer-{process.name()}-{pid}"
         filepath = os.path.dirname(os.path.abspath(__file__))
         folderpath = os.path.join(filepath, folderstring)
         scriptspath = os.path.join(filepath, "Scripts")
