@@ -14,8 +14,11 @@ def main(pid):
         folderpath = os.path.join(filepath, folderstring)
         scriptspath = os.path.join(filepath, "Scripts")
         os.makedirs(folderpath, exist_ok=True)
-        if (len(sys.argv) > 1 and sys.argv[2] == "-d"):
-            os.makedirs(os.path.join(folderpath, "Dumps"), exist_ok=True)
+        if (len(sys.argv) > 2):
+            if (sys.argv[2] == "-d"):
+                os.makedirs(os.path.join(folderpath, "Dumps"), exist_ok=True)
+            else:
+                pass
 
         modulesfile = open(os.path.join(folderpath, "Modules.txt"), "w")
         threadsfile = open(os.path.join(folderpath, "Threads.txt"), "w")
@@ -81,7 +84,7 @@ def main(pid):
         script.on('message', on_message_symbols)
         script.load()
 
-        if (len(sys.argv) > 1):
+        if (len(sys.argv) > 2):
             if (sys.argv[2] == "-d"):
                 regionscript = loadscript("EnumerateRangesDump.js")
                 script = session.create_script(regionscript)
