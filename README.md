@@ -1,4 +1,4 @@
-# Fritalyzer
+# Fridalyzer
 ## A pre-analysis program good for all of your reverse enginering needs
 [Test video/how to use](https://youtu.be/0i1vwXDEZ-E)
 
