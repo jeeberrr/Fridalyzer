@@ -81,11 +81,14 @@ def main(pid):
         script.on('message', on_message_symbols)
         script.load()
 
-        if (len(sys.argv) > 1 and sys.argv[2] == "-d"):
-            regionscript = loadscript("EnumerateRangesDump.js")
-            script = session.create_script(regionscript)
-            script.on('message', on_message_regions)
-            script.load()
+        if (len(sys.argv) > 1):
+            if (sys.argv[2] == "-d"):
+                regionscript = loadscript("EnumerateRangesDump.js")
+                script = session.create_script(regionscript)
+                script.on('message', on_message_regions)
+                script.load()
+            else: 
+                pass
         else:
             regionscript = loadscript("EnumerateRanges.js")
             script = session.create_script(regionscript)
@@ -123,6 +126,6 @@ def main(pid):
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print(f"Usage: python {sys.argv[0]} pid -d (optional for full memory segment dumps)")
-    
-    pid = sys.argv[1]
-    main(pid)
+    else:
+        pid = sys.argv[1]
+        main(pid)
